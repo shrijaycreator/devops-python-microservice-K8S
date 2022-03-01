@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-route
+spec:
+  selector:
+    matchLabels:
+      app: api-route
+  template:
+    metadata:
+      labels:
+        app: api-route
+    spec:
+      containers:
+      - name: api-route
+        image: shrijaycloudubuntu/api-route
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8080

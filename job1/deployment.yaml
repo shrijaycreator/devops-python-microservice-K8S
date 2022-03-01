@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job1
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: job1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        name: job1
+    spec:
+      containers:
+        - name: job1
+          image: shrijaycloudubuntu/job1
+          resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
