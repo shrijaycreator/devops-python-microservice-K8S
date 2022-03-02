@@ -6,7 +6,7 @@ ADD . /home/app
 EXPOSE 8080
 
 RUN pip install flask
-RUN pip Install flask_restful
+RUN pip install flask_restful
 
 CMD ["python","/home/app/api-route.py"]
 
