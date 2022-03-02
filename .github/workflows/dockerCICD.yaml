@@ -1,0 +1,30 @@
+name: DockerCICD
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: docker login
+       env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
+       run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+     - name: Docker build job1
+       run: |
+        docker build ./job1 -t shrijaycloudubuntu/job1:1.0.0
+     - name: Docker build job2
+       run: |
+        dokcer build ./job2 -t shrijaycloudubuntu/job2:1.0.0
+     - name: Docker build api-route
+       run: |   
+        dokcer build ./api-route -t shrijaycloudubuntu/api-route:1.0.0
+     - name: Docker Push
+       run: |
+        docker push shrijaycloudubuntu/job1:1.0.0
+        docker push shrijaycloudubuntu/job2:1.0.0
+        docker push shrijaycloudubuntu/api-route:1.0.0
