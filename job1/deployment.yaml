@@ -22,9 +22,6 @@ spec:
         - name: job1
           image: shrijaycloudubuntu/job1
           resources:
-          limits:
-            memory: "128Mi"
-            cpu: "250m"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
