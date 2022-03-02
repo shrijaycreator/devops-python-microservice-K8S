@@ -16,8 +16,6 @@ spec:
       - name: api-route
         image: shrijaycloudubuntu/api-route
         resources:
-          limits:
-            memory: "128Mi"
-            cpu: "250m"
-        ports:
-        - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
