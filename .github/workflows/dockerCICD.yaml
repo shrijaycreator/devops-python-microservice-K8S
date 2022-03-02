@@ -12,7 +12,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
        run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-     - name: Docker build job1
+     - name:  Docker build job1
        run: |
         docker build ./job1 -t shrijaycloudubuntu/job1:1.0.0
      - name: Docker build job2
@@ -24,5 +24,5 @@ jobs:
      - name: Docker Push
        run: |
         docker push shrijaycloudubuntu/job1:1.0.0
-        docker push shrijaycloudubuntu/job2:1.0.0
+        docker push shrijaycloudubuntu/job2:1.0.0 
         docker push shrijaycloudubuntu/api-route:1.0.0
