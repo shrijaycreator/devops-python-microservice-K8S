@@ -17,10 +17,10 @@ jobs:
         docker build ./job1 -t shrijaycloudubuntu/job1:1.0.0
      - name: Docker build job2
        run: |
-        dokcer build ./job2 -t shrijaycloudubuntu/job2:1.0.0
+        docker build ./job2 -t shrijaycloudubuntu/job2:1.0.0
      - name: Docker build api-route
        run: |   
-        dokcer build ./api-route -t shrijaycloudubuntu/api-route:1.0.0
+        docker build ./api-route -t shrijaycloudubuntu/api-route:1.0.0
      - name: Docker Push
        run: |
         docker push shrijaycloudubuntu/job1:1.0.0
